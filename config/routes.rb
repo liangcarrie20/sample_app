@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root 'application#hello'
+  # root 'static_pages#home'
+
   get 'ccsf_rails/index'
 
   get 'ccsf_rails/links'
@@ -10,8 +13,7 @@ Rails.application.routes.draw do
   get  'static_pages/help'
   get  'static_pages/about'
   get  'static_pages/contact'
-
-  root 'application#hello'
-  # root 'static_pages#home'
-
+  get  '/signup',  to: 'users#new'
+  post '/signup',  to: 'users#create'
+  resources :users
 end
